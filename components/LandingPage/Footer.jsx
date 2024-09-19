@@ -10,7 +10,7 @@ export default function Footer() {
       </p>
       <div className="flex space-x-4 p-2 mr-2">
         <a
-          href="https://github.com/luka-vlahovic-0/Nex-Exchange"
+          href="https://github.com/luka-vlahovic-0/Zenith"
           target="_blank"
           rel="noopener noreferrer"
         >

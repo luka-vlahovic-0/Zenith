@@ -7,11 +7,13 @@ import StakeWithZenith from "@/components/AboutComponents/StakeWithZenith";
 export default function page() {
   return (
     <>
-      <AboutHeader />
-      <Security />
-      <Mission />
-      <StakeWithZenith />
-      <JoinUs />
+      <div className="mt-12">
+        <AboutHeader />
+        <Security />
+        <Mission />
+        <StakeWithZenith />
+        <JoinUs />
+      </div>
     </>
   );
 }

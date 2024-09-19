@@ -12,7 +12,7 @@ export default function Hello() {
         style={{
           backgroundImage: `url('/assets/mainbackground.png')`,
           height: "133%",        
-          backgroundPosition: "center -175px",
+          backgroundPosition: "center -95px",
         }}
       >
         <div className="relative z-10">

@@ -12,7 +12,7 @@ export default function Hero() {
           <h1 className="px-6 text-center mb-4 text-4xl md:text-[40px] font-medium text-white md:px-0 md:text-56">
             Stake, Earn, Spend.
           </h1>
-          <span className="text-[#e0caff] text-[30px] font-thin max-w-[800px] text-center">
+          <span className="text-[#e0caff] text-[30px] px-2 font-thin max-w-[800px] text-center">
             <span className="text-[#c293ff]">Stake ETH, get zETH</span> - the
             liquid restaking token that rewards you more across DeFi.
           </span>

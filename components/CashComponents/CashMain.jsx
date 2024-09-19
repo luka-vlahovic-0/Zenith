@@ -3,12 +3,12 @@ import cashImg from "../../public/assets/zenith-cash.png";
 
 export default function CashMain() {
   return (
-    <div className="flex flex-col items-center justify-center mt-12 px-4">
+    <div className="flex flex-col items-center justify-center mt-28 md:mt-7 px-4">
       <div className="flex flex-col md:flex-row items-center justify-center max-w-full md:max-w-4xl">
         <Image
           src={cashImg}
           alt="icon"
-          className="h-40 w-40 md:h-52 md:w-56 mr-0 md:mr-2 mb-4 md:mb-0"
+          className="h-40 w-40 md:h-48 md:w-56 mr-0 md:mr-2 mb-4 md:mb-0"
         />
         <h1 className="text-[#f0e5ff] text-4xl md:text-5xl mr-0 md:mr-8 mb-4 md:mb-0">
           Cash

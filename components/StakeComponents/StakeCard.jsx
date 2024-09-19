@@ -9,7 +9,7 @@ import ethCoin1Img from "../../public/assets/ethCoin.png";
 export default function StakeCard() {
   return (
     <>
-      <div className="flex flex-col items-center justify-center mt-12 px-4">
+      <div className="flex flex-col items-center justify-center mt-28 md:mt-12 px-4">
         <div className="flex flex-col md:flex-row items-center justify-center max-w-full md:max-w-4xl">
           <Image
             src={ethCoin1Img}

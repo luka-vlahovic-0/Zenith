@@ -13,7 +13,7 @@ import liquidPurpleImg from "../../public/assets/circlePurple1.png";
 export default function Liquidity() {
   return (
     <>
-      <div className="flex flex-col items-center justify-center mt-12 px-4">
+      <div className="flex flex-col items-center justify-center mt-28 px-4 md:mt-8">
         <div className="flex flex-col md:flex-row items-center justify-center max-w-full md:max-w-4xl">
           <Image
             src={liquidPurpleImg}

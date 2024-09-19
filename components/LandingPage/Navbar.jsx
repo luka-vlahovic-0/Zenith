@@ -114,8 +114,8 @@ export default function Navbar() {
         </Link>
       </div>
 
-      <div className="flex items-center space-x-4">
-        <div className="w-[250px] pl-12 scale-[0.85] md:scale-100 sm:scale-[0.8]">
+      <div className="flex items-center">
+        <div className="w-[250px] pl-24 scale-[0.85] md:scale-100 sm:scale-[0.8]">
           <ConnectButton
             accountStatus="address"
             showBalance={false}

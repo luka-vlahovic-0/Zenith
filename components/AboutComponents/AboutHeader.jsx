@@ -43,7 +43,7 @@ export default function AboutHeader() {
               The zenith.fi protocol has a sustainable revenue model
             </h3>
             <p className="text-[#d3c1ee] text-sm sm:text-[18px] mt-2">
-              We're in this for the long haul, we think and plan on the scale of
+              We&apos;re in this for the long haul, we think and plan on the scale of
               decades. No short term thinking, no short term gains.
             </p>
           </div>

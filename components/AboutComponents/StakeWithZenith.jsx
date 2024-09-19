@@ -1,4 +1,4 @@
-import eigenImg from "../../public/assets/eigenlLayer.png";
+import eigenImg from "../../public/assets/eigenlayer.png";
 import decentralisationImg from "../../public/assets/decentralisation.png";
 import keysNcoinsImg from "../../public/assets/yKeysYcoins.png";
 import thrivingImg from "../../public/assets/thriving.png";

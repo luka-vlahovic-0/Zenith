@@ -62,9 +62,9 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="w-full max-w-full h-20 flex justify-between items-center mb-[-50px] md:mb-0 px-4 md:px-16 py-4 bg-transparent">
+    <nav className="w-full max-w-full h-20 flex justify-between items-center z-40 mb-[-50px] md:mb-0 px-4 md:px-16 py-4 bg-transparent">
   <Link href="/">
-    <div className="flex items-center space-x-2 flex-shrink-0">
+    <div className="flex items-center space-x-2 flex-shrink-0 z-50">
       <Image
         src={ethLogo}
         alt="Zenith.fi Logo"
@@ -76,11 +76,11 @@ export default function Navbar() {
     </div>
   </Link>
 
-  <div className="hidden lg:flex space-x-6 text-xl font-semibold">
+  <div className="hidden lg:flex space-x-6 text-xl font-semibold z-50">
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={toggleDropdown}
-        className="flex items-center text-white hover:text-gray-300 focus:outline-none"
+        className="flex items-center text-white hover:text-gray-300 focus:outline-none z-50"
       >
         Products
         <FiChevronDown className="ml-1" />
@@ -101,16 +101,16 @@ export default function Navbar() {
     </div>
 
     <Link href="/solo-staker" onClick={handleLinkClick}>
-      <p className="text-white hover:text-gray-300">Solo Staker</p>
+      <p className="text-white hover:text-gray-300 z-50">Solo Staker</p>
     </Link>
 
     <Link href="/about" onClick={handleLinkClick}>
-      <p className="text-white hover:text-gray-300">About Us</p>
+      <p className="text-white hover:text-gray-300 z-50">About Us</p>
     </Link>
   </div>
 
-  <div className="relative flex items-center">
-    <div className="w-[180px] scale-[0.85] mr-4 md:scale-100">
+  <div className="relative flex items-center z-50">
+    <div className="w-[180px] scale-[0.85] mr-4 md:scale-100 z-50">
       <ConnectButton
         accountStatus="address"
         showBalance={false}
@@ -119,7 +119,7 @@ export default function Navbar() {
     </div>
 
     <button
-      className="lg:hidden absolute right-0 text-white pr-2"
+      className="lg:hidden absolute right-0 text-white pr-2 z-50"
       onClick={toggleMenu}
       ref={menuButtonRef}
     >
@@ -133,20 +133,20 @@ export default function Navbar() {
       ref={mobileMenuRef}
     >
       <Link href="/stake" onClick={handleLinkClick}>
-        <p className="block hover:text-gray-300 mb-3">Stake</p>
+        <p className="block hover:text-gray-300 mb-3 z-50">Stake</p>
       </Link>
       <Link href="/cash" onClick={handleLinkClick}>
-        <p className="block hover:text-gray-300 mb-3">Cash</p>
+        <p className="block hover:text-gray-300 mb-3 z-50">Cash</p>
       </Link>
       <Link href="/liquidity" onClick={handleLinkClick}>
-        <p className="block hover:text-gray-300 mb-3">Liquidity</p>
+        <p className="block hover:text-gray-300 mb-3 z-50">Liquidity</p>
       </Link>
 
       <Link href="/solo-staker" onClick={handleLinkClick}>
-        <p className="block hover:text-gray-300 mb-3">Solo Staker</p>
+        <p className="block hover:text-gray-300 mb-3 z-50">Solo Staker</p>
       </Link>
       <Link href="/about" onClick={handleLinkClick}>
-        <p className="block hover:text-gray-300">About Us</p>
+        <p className="block hover:text-gray-300 z-50">About Us</p>
       </Link>
     </div>
   )}

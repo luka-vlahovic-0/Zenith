@@ -5,24 +5,22 @@ import Security from "@/components/AboutComponents/Security";
 import StakeWithZenith from "@/components/AboutComponents/StakeWithZenith";
 
 export const metadata = {
-  title: "Zenith.fi | Staking Made Simple",
+  title: "zenith.fi | About Us",
   description:
-    "Discover Zenith.fi, a dedicated platform empowering users in the crypto space. Our mission is to simplify staking, liquidity, and node management while providing expert insights and support. Join us in shaping the future of DeFi!",
+    "Discover zenith.fi — a protocol built on decentralization, sustainability, and ethics. Our mission is to simplify staking, liquidity, and node operation for everyone.",
   icons: {
     icon: "/assets/ethlogo.png",
   },
 };
 
-export default function page() {
+export default function AboutPage() {
   return (
     <>
-      <div className="mt-12">
-        <AboutHeader />
-        <Security />
-        <Mission />
-        <StakeWithZenith />
-        <JoinUs />
-      </div>
+      <AboutHeader />
+      <Security />
+      <Mission />
+      <StakeWithZenith />
+      <JoinUs />
     </>
   );
 }

@@ -3,124 +3,88 @@
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Reveal from "@/components/ui/Reveal";
 
-const toastSuccess = () => {
-  toast.success(
-    "Your message has been sent successfully. We will contact you shortly! 🚀",
-    {
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    }
-  );
-};
+const inputClass =
+  "w-full rounded-xl border border-white/[0.1] bg-void/60 px-5 py-3.5 text-ink placeholder:text-ink-faint outline-none transition-colors duration-300 focus:border-zen-cyan/60 focus:shadow-glow-cyan";
 
 export default function GetStarted() {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (e.target.checkValidity()) {
-      setLoading(true);
-      setTimeout(() => {
-        toastSuccess();
-        setLoading(false);
-      }, 2500);
-    } else {
+    if (!e.target.checkValidity()) {
       e.target.reportValidity();
+      return;
     }
+    setLoading(true);
+    setTimeout(() => {
+      toast.success(
+        "Your application has been sent. We'll contact you shortly! 🚀",
+        { position: "bottom-right", autoClose: 5000, theme: "dark" }
+      );
+      setLoading(false);
+      e.target.reset();
+    }, 2000);
   };
 
   return (
-    <>
-      <div className="flex flex-col items-start justify-start ml-4 md:ml-28">
-        <p className="text-[#c293ff] text-base sm:text-lg md:text-xl mb-2">
-          To be a solo node operator
+    <section className="mx-auto mt-32 max-w-2xl px-6 pb-10 md:px-8">
+      <Reveal className="text-center">
+        <span className="eyebrow">Get involved</span>
+        <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-ink md:text-5xl">
+          Ready to <span className="text-aurora">join the operation?</span>
+        </h2>
+        <p className="mx-auto mt-4 max-w-xl text-lg text-ink-muted">
+          Fill out the form below and begin your journey. If accepted, you will
+          receive onboarding instructions by email.
         </p>
-        <h1 className="text-white text-2xl sm:text-3xl md:text-4xl mb-3">
-          How to get involved?
-        </h1>
-        <p className="text-[#e0caff] text-sm sm:text-base md:text-lg mb-6 max-w-full sm:max-w-md md:max-w-xl">
-          Fill out our form below and begin your journey. If accepted, you will
-          be emailed onboarding instructions.
-        </p>
-      </div>
+      </Reveal>
 
-      <section
-        id="Contact"
-        className="relative flex flex-col items-center justify-center py-8"
-      >
-        <div className="bg-black-100 p-6 sm:p-8 rounded-2xl max-w-full w-full sm:max-w-md lg:max-w-lg">
-          <form className="flex flex-col gap-6 sm:gap-8" onSubmit={handleSubmit}>
-            <label className="flex flex-col">
-              <span className="text-white font-medium mb-2 sm:mb-4">
-                Your Name
-              </span>
-              <input
-                type="text"
-                name="name"
-                required
-                placeholder="What's your name?"
-                className="bg-tertiary py-3 px-4 sm:py-4 sm:px-6 placeholder:text-secondary text-black rounded-lg outline-none border-none font-medium"
-              />
-            </label>
-            <label className="flex flex-col">
-              <span className="text-white font-medium mb-2 sm:mb-4">
-                Your Email
-              </span>
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="What's your email address?"
-                className="bg-tertiary py-3 px-4 sm:py-4 sm:px-6 placeholder:text-secondary text-black rounded-lg outline-none border-none font-medium"
-              />
-            </label>
-            <label className="flex flex-col">
-              <span className="text-white font-medium mb-2 sm:mb-4">
-                Technical Expertise
-              </span>
-              <textarea
-                required
-                rows={5}
-                name="message"
-                placeholder="Write about your technical expertise here..."
-                className="bg-tertiary py-3 px-4 sm:py-4 sm:px-6 placeholder:text-secondary text-black rounded-lg outline-none border-none font-medium"
-              />
-            </label>
+      <Reveal delay={150}>
+        <form className="glass mt-10 flex flex-col gap-5 p-8" onSubmit={handleSubmit}>
+          <label className="flex flex-col gap-2">
+            <span className="font-display text-sm font-semibold text-ink">Your name</span>
+            <input type="text" name="name" required placeholder="Satoshi Nakamoto" className={inputClass} />
+          </label>
 
-            <button
-              type="submit"
-              className={`text-xl sm:text-2xl w-full h-10 sm:h-12 mt-1 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-xl transition duration-500 ease-in-out ${
-                loading
-                  ? "bg-gradient-to-r from-gray-500 to-gray-700 cursor-not-allowed"
-                  : "hover:bg-gradient-to-r hover:from-purple-500 hover:to-indigo-500"
-              }`}
-              disabled={loading}
-            >
-              {loading ? "Sending..." : "Send"}
-            </button>
-          </form>
-          <ToastContainer
-            position="bottom-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="dark"
-          />
-        </div>
-      </section>
-    </>
+          <label className="flex flex-col gap-2">
+            <span className="font-display text-sm font-semibold text-ink">Your email</span>
+            <input type="email" name="email" required placeholder="you@example.com" className={inputClass} />
+          </label>
+
+          <label className="flex flex-col gap-2">
+            <span className="font-display text-sm font-semibold text-ink">Technical expertise</span>
+            <textarea
+              required
+              rows={5}
+              name="message"
+              placeholder="Tell us about your staking setup, hardware, and experience..."
+              className={`${inputClass} resize-none`}
+            />
+          </label>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="btn-aurora mt-2 w-full text-lg disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            {loading ? (
+              <>
+                <svg className="h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" strokeOpacity="0.25" />
+                  <path d="M22 12a10 10 0 0 0-10-10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                </svg>
+                Sending...
+              </>
+            ) : (
+              "Apply to run a node"
+            )}
+          </button>
+        </form>
+      </Reveal>
+
+      <ToastContainer />
+    </section>
   );
 }

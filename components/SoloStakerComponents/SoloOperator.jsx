@@ -1,42 +1,58 @@
-import Image from "next/image";
-import number1 from "../../public/assets/number1.png";
-import number2 from "../../public/assets/number2.png";
-import number3 from "../../public/assets/number3.png";
+import Reveal from "@/components/ui/Reveal";
+
+const BENEFITS = [
+  {
+    n: "01",
+    color: "#38e8ff",
+    title: "Decentralization",
+    desc: "Validator keys are distributed to diverse operators using DVT, reducing risk and pushing Ethereum toward true decentralization.",
+  },
+  {
+    n: "02",
+    color: "#8b7cf6",
+    title: "No ETH deposit",
+    desc: "On Path 2, Distributed Validator Technology eliminates the ETH bond entirely — zenith.fi provides the stake.",
+  },
+  {
+    n: "03",
+    color: "#f472b6",
+    title: "Earn rewards",
+    desc: "Operators earn rewards for supporting and validating the network — a win for you, stakers, and the whole ecosystem.",
+  },
+];
 
 export default function SoloOperator() {
   return (
-    <>
-      <div className="flex flex-col justify-center items-center mt-24">
-        <div className="flex flex-col justify-center items-center">
-          <p className="text-[#c293ff] text-xl mb-4">To be a solo operator</p>
-          <h1 className="text-white text-3xl lg:text-4xl mb-12">Why Be a Solo Operator?</h1>
-        </div>
-        <div className="flex flex-col lg:flex-row items-center justify-center max-w-7xl gap-8 mb-12 px-4">
-          <div className="flex flex-col items-center justify-center text-center max-w-xs">
-            <Image src={number1} alt="number1" className="h-16 w-12 lg:h-20 lg:w-16 mb-2" />
-            <h3 className="text-white text-xl lg:text-2xl mb-2">Decentralization</h3>
-            <p className="text-[#e0caff]">
-              Distributes validator keys to diverse operators using DVT, reducing risks and promoting decentralization.
-            </p>
-          </div>
+    <section className="mx-auto mt-32 max-w-6xl px-6 md:px-8">
+      <Reveal className="text-center">
+        <span className="eyebrow">Why run a node</span>
+        <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-ink md:text-5xl">
+          Why be a <span className="text-aurora">solo operator?</span>
+        </h2>
+      </Reveal>
 
-          <div className="flex flex-col items-center justify-center text-center max-w-xs">
-            <Image src={number2} alt="number2" className="h-16 w-12 lg:h-20 lg:w-16 mb-2" />
-            <h3 className="text-white text-xl lg:text-2xl mb-2">No ETH deposit</h3>
-            <p className="text-[#e0caff]">
-              For path 2, with the implementation of Distributed Validator Technology (DVT), the need for an ETH bond is eliminated.
-            </p>
-          </div>
-
-          <div className="flex flex-col items-center justify-center text-center max-w-xs">
-            <Image src={number3} alt="number3" className="h-16 w-12 lg:h-20 lg:w-16 mb-2" />
-            <h3 className="text-white text-xl lg:text-2xl mb-2">Earn rewards</h3>
-            <p className="text-[#e0caff]">
-              Participants earn rewards by supporting and validating the Ethereum network, benefiting stakers and the Ethereum ecosystem.
-            </p>
-          </div>
-        </div>
+      <div className="mt-12 grid gap-6 md:grid-cols-3">
+        {BENEFITS.map((b, i) => (
+          <Reveal key={b.n} delay={i * 130}>
+            <div className="glass glass-hover group relative h-full overflow-hidden p-8">
+              <span
+                className="pointer-events-none absolute -right-3 -top-6 font-display text-[96px] font-bold opacity-[0.07] transition-opacity duration-500 group-hover:opacity-[0.14]"
+                style={{ color: b.color }}
+              >
+                {b.n}
+              </span>
+              <span
+                className="font-display text-sm font-bold tracking-[0.3em]"
+                style={{ color: b.color }}
+              >
+                {b.n}
+              </span>
+              <h3 className="mt-4 font-display text-xl font-bold text-ink">{b.title}</h3>
+              <p className="mt-3 leading-relaxed text-ink-muted">{b.desc}</p>
+            </div>
+          </Reveal>
+        ))}
       </div>
-    </>
+    </section>
   );
 }

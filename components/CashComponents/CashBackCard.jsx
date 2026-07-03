@@ -1,13 +1,16 @@
-import Image from "next/image";
-
-export default function CashBackCard({ image, header, description }) {
+export default function CashBackCard({ icon, color = "#38e8ff", header, description }) {
   return (
-    <div className="flex flex-row items-center justify-center border rounded-lg p-4 bg-[#19163b] border-[#836aff]">
-        <Image src={image} alt="icon" className="h-16 w-16 mr-4 mb-24 md:mb-12" />
-        <div className="flex flex-col">
-            <h1 className="text-[#c293ff] text-2xl">{header}</h1>
-            <p className="text-[#dad5df] text-xl">{description}</p>
-        </div>
+    <div className="glass glass-hover group h-full p-7">
+      <div
+        className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 transition-transform duration-500 group-hover:scale-110"
+        style={{ background: `${color}14` }}
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color} aria-hidden="true">
+          {icon}
+        </svg>
+      </div>
+      <h3 className="mt-5 font-display text-lg font-bold text-ink">{header}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-ink-muted">{description}</p>
     </div>
-  )
+  );
 }

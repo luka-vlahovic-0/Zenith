@@ -1,18 +1,14 @@
-import Liquidity from '@/components/LiquidityComponents/Liquidity'
+import Liquidity from "@/components/LiquidityComponents/Liquidity";
 
 export const metadata = {
-  title: "Zenith.fi | Staking Made Simple",
+  title: "zenith.fi | Liquid Vaults",
   description:
-    "Add liquidity on Zenith.fi and earn rewards while supporting the crypto ecosystem. Join now to enhance trading efficiency and maximize your crypto assets!",
+    "Deposit into zenith.fi liquid vaults and let automated strategies find the best yields across DeFi. Earn more, without more effort.",
   icons: {
     icon: "/assets/ethlogo.png",
   },
 };
 
-export default function page() {
-  return (
-    <>
-        <Liquidity />
-    </>
-  )
+export default function LiquidityPage() {
+  return <Liquidity />;
 }

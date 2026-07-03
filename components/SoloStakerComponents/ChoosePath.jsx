@@ -1,87 +1,93 @@
-import Image from "next/image";
-import hardDriveImg from "../../public/assets/hard-drive.png";
-import helpingHandImg from "../../public/assets/helping-hand.png";
+import Reveal from "@/components/ui/Reveal";
+
+const stroke = { strokeWidth: 1.7, strokeLinecap: "round", strokeLinejoin: "round" };
+
+const PATHS = [
+  {
+    tag: "Path 1",
+    color: "#38e8ff",
+    title: "Permissionless + 2 ETH bond",
+    description:
+      "For users with existing staking hardware willing to put up a 2 ETH bond. Fully permissionless, with DVT, securing and validating Ethereum from day one.",
+    zenith: "Provides 30 ETH, software, and technical support.",
+    you: "Provide the hardware and internet connection, plus a 2 ETH bond.",
+    icon: (
+      <>
+        <rect x="3" y="5" width="18" height="6" rx="2" {...stroke} />
+        <rect x="3" y="13" width="18" height="6" rx="2" {...stroke} />
+        <path d="M7 8h.01M7 16h.01M11 8h4M11 16h4" {...stroke} />
+      </>
+    ),
+  },
+  {
+    tag: "Path 2",
+    color: "#f472b6",
+    title: "Permissioned, zero bond",
+    description:
+      "Operation Solo Staker: commit to operating a node for 2 years and get onboarded into a permissioned environment — solo stake with DVT, no 2 ETH bond required.",
+    zenith: "Provides the ETH, software, and technical support.",
+    you: "Provide the internet connection and hardware. No bond required.",
+    icon: (
+      <>
+        <path d="M8 13c-2.8 0-5 2-5 4.5V19h10v-1.5C13 15 10.8 13 8 13Z" {...stroke} />
+        <circle cx="8" cy="8" r="3" {...stroke} />
+        <path d="m15 8 2 2 4-4" {...stroke} />
+      </>
+    ),
+  },
+];
 
 export default function ChoosePath() {
   return (
-    <>
-      <div className="flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-        <h1 className="text-white text-3xl mb-2 mt-20">Choose your path:</h1>
-      </div>
+    <section className="mx-auto mt-32 max-w-6xl px-6 md:px-8">
+      <Reveal className="text-center">
+        <h2 className="font-display text-3xl font-bold tracking-tight text-ink md:text-5xl">
+          Choose your <span className="text-aurora">path</span>
+        </h2>
+      </Reveal>
 
-      <div className="flex items-center justify-center mb-20 px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-4 mb-10 md:grid-cols-2 mt-8 max-w-7xl">
-          {[
-            {
-              img: hardDriveImg,
-              title: "Path 1",
-              description:
-                "Permissionless users with existing hardware who stake a 2 ETH bond to run a validator.",
-              details:
-                "Permissionless, with DVT for users who are willing to put up a 2 ETH bond requirement and have staking hardware already to secure and validate the Ethereum network.",
-              zenithText: "Provides 30 ETH, software and technical support.",
-              youDesc:
-                "Provide the hardware and internet connection. 2 ETH bond requirement.",
-            },
-            {
-              img: helpingHandImg,
-              title: "Path 2",
-              description:
-                "Permissioned users who provide their own hardware and use DVT without having to provide a 2 ETH bond.",
-              details:
-                "Operation Solo Staker. By committing to operate a node for 2 years, zenith.fi will onboard select users into a permissioned environment allowing users to Solo Stake using DVT without the requirement of a 2 ETH bond.",
-              zenithText: "Provides the ETH, software and technical support.",
-              youDesc:
-                "Provide the internet connection and hardware, with no bond required.",
-            },
-          ].map((path, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col border border-[#c293ff] rounded-lg bg-[#35296c] p-4 md:p-6"
-            >
-              <Image
-                src={path.img}
-                alt={`${path.title} Image`}
-                className="h-16 w-16 border-2 p-1 border-[#681ca2] rounded-xl"
-              />
-              <div className="flex flex-col mt-4">
-                <p className="text-white text-xl md:text-2xl mb-4">
-                  {path.title}
-                </p>
-                <p className="text-[#f0e6ff] text-sm md:text-base mb-4">
-                  {path.description}
-                </p>
-                <p className="text-[#f0e6ff] text-sm md:text-base">
-                  {path.details}
-                </p>
-                <div className="flex flex-col justify-start items-start bg-[#262250] mt-6 rounded-xl">
-                  <div className="flex flex-row justify-between items-start px-4 py-2">
-                    <div className="flex flex-col mr-4">
-                      {" "}
-                      <p className="text-white font-bold mb-2">zenith.fi</p>
-                      <p className="text-[#f0e6ff] text-sm">
-                        {path.zenithText}
-                      </p>
-                    </div>
-                    <div className="flex flex-col ml-4">
-                      {" "}
-                      <p className="text-white font-bold mb-2">you</p>
-                      <p className="text-[#f0e6ff] text-sm">{path.youDesc}</p>
-                    </div>
-                  </div>
-                  <div
-                    className="w-full h-[0.7px]"
-                    style={{
-                      background:
-                        "linear-gradient(91deg,#6d33bc -4%,#11344d 120.34%)",
-                    }}
-                  ></div>
+      <div className="mt-12 grid gap-6 md:grid-cols-2">
+        {PATHS.map((p, i) => (
+          <Reveal key={p.tag} delay={i * 150}>
+            <div className="glass glass-hover group flex h-full flex-col p-8">
+              <div className="flex items-center gap-4">
+                <div
+                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/10 transition-transform duration-500 group-hover:scale-110"
+                  style={{ background: `${p.color}14` }}
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={p.color} aria-hidden="true">
+                    {p.icon}
+                  </svg>
+                </div>
+                <span
+                  className="font-display text-xs font-semibold uppercase tracking-[0.25em]"
+                  style={{ color: p.color }}
+                >
+                  {p.tag}
+                </span>
+              </div>
+
+              <h3 className="mt-5 font-display text-xl font-bold text-ink">{p.title}</h3>
+              <p className="mt-3 flex-1 leading-relaxed text-ink-muted">{p.description}</p>
+
+              <div className="mt-6 grid grid-cols-2 divide-x divide-white/[0.08] rounded-xl border border-white/[0.08] bg-void/40">
+                <div className="p-4">
+                  <p className="font-display text-xs font-bold uppercase tracking-[0.2em] text-zen-cyan">
+                    zenith.fi
+                  </p>
+                  <p className="mt-2 text-sm text-ink-muted">{p.zenith}</p>
+                </div>
+                <div className="p-4">
+                  <p className="font-display text-xs font-bold uppercase tracking-[0.2em] text-ink">
+                    You
+                  </p>
+                  <p className="mt-2 text-sm text-ink-muted">{p.you}</p>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
+          </Reveal>
+        ))}
       </div>
-    </>
+    </section>
   );
 }

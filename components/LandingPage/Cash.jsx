@@ -1,41 +1,34 @@
-import Image from "next/image";
-import zenithCashImg from "../../public/assets/zenith-cash.png";
-import zenithCardImg from "../../public/assets/zenith-credit.png";
 import Link from "next/link";
+import CreditCard from "@/components/ui/CreditCard";
 
 export default function Cash() {
   return (
-    <div
-      id="CASH"
-      className="bg-[#0e0a31] rounded-xl px-4 sm:px-6 lg:px-8 py-8 max-w-xl lg:max-w-7xl w-full mx-auto h-full"
-    >
-      <div className="flex flex-col items-center justify-center">
-        <Image
-          src={zenithCashImg}
-          alt="Zenith Cash"
-          className="mt-4 mb-2 w-20 h-20 sm:w-24 sm:h-24"
-        />
-        <h1 className="text-white text-2xl sm:text-3xl">Cash</h1>
-        <p className="text-[#e0caff] text-base sm:text-lg text-center">
-          The credit card and wallet app for your crypto
-        </p>
+    <div className="glass glass-hover group flex h-full flex-col p-8">
+      <span className="font-display text-xs font-medium uppercase tracking-[0.25em] text-zen-pink">
+        Cash
+      </span>
+      <h3 className="mt-3 font-display text-2xl font-bold text-ink">
+        Spend crypto in real life
+      </h3>
+      <p className="mt-3 leading-relaxed text-ink-muted">
+        A true crypto-native credit card. Borrow against your zETH, buy coffee,
+        book hotels — and earn cash back on every purchase.
+      </p>
+
+      <div className="mt-8 flex flex-1 items-center justify-center px-2">
+        <CreditCard className="max-w-[300px]" />
       </div>
-      <div className="flex flex-col items-center justify-center my-6 sm:my-8">
-        <span className="text-white text-lg sm:text-2xl text-center">
-          Using crypto in real life isn’t easy.
-        </span>
-        <span className="text-white text-lg sm:text-2xl text-center">
-          Get the credit card that lets you pay in crypto!
-        </span>
-        <Image
-          src={zenithCardImg}
-          alt="Zenith Credit Card"
-          className="h-[150px] sm:h-[200px] w-[280px] sm:w-[370px] mt-5"
-        />
-        <Link href="/cash">
-          <button className="mt-8 sm:mt-10 text-xl sm:text-2xl w-64 sm:w-72 h-10 sm:h-12 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 rounded-xl transition duration-500 ease-in-out hover:bg-gradient-to-r hover:from-purple-500 hover:to-indigo-500">
-            Get Cash Now
-          </button>
+
+      <div className="mt-8 flex items-center justify-between border-t border-white/[0.06] pt-6">
+        <div>
+          <p className="font-display text-2xl font-bold text-ink">2% back</p>
+          <p className="text-xs uppercase tracking-widest text-ink-faint">On everything</p>
+        </div>
+        <Link
+          href="/cash"
+          className="btn-ghost !px-5 !py-2 text-sm group-hover:border-zen-pink/60 group-hover:text-zen-pink"
+        >
+          Get the card →
         </Link>
       </div>
     </div>

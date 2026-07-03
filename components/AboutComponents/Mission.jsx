@@ -1,75 +1,73 @@
-"use client";
+import Reveal from "@/components/ui/Reveal";
 
-import Image from "next/image";
-import handshakeImg from "../../public/assets/handshake1.png";
-import { useEffect, useState } from "react";
-
-function useMediaQuery(query) {
-  const [matches, setMatches] = useState(false);
-
-  useEffect(() => {
-    const media = window.matchMedia(query);
-    if (media.matches !== matches) {
-      setMatches(media.matches);
-    }
-    const listener = () => setMatches(media.matches);
-    media.addListener(listener);
-    return () => media.removeListener(listener);
-  }, [matches, query]);
-
-  return matches;
+function AscentGraphic() {
+  return (
+    <svg
+      viewBox="0 0 320 240"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="mx-auto w-full max-w-[320px]"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="ascent-grad" x1="0" y1="240" x2="320" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#38e8ff" />
+          <stop offset="60%" stopColor="#8b7cf6" />
+          <stop offset="100%" stopColor="#f472b6" />
+        </linearGradient>
+      </defs>
+      {/* ascending path to the zenith */}
+      <path
+        className="draw-path"
+        style={{ "--path-length": 500 }}
+        d="M20 210 L90 160 L70 120 L150 90 L135 60 L230 55 L290 25"
+        stroke="url(#ascent-grad)"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      {/* waypoints */}
+      {[
+        [20, 210],
+        [90, 160],
+        [70, 120],
+        [150, 90],
+        [135, 60],
+        [230, 55],
+      ].map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r="3.5" fill="#8b7cf6" />
+      ))}
+      {/* zenith star */}
+      <g className="animate-pulse-glow">
+        <circle cx="290" cy="25" r="5" fill="#38e8ff" />
+        <path d="M290 10v6M290 34v6M275 25h6M299 25h6" stroke="#38e8ff" strokeWidth="1.6" strokeLinecap="round" />
+      </g>
+    </svg>
+  );
 }
 
 export default function Mission() {
-  const isMediumOrAbove = useMediaQuery("(min-width: 768px)"); 
-
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto mt-10 md:mt-20 px-4 lg:px-16">
-      {isMediumOrAbove ? (
-        <>
-          <Image
-            src={handshakeImg}
-            alt="handshake"
-            className="h-48 w-60 sm:h-64 sm:w-80 md:h-96 md:w-96 mt-10 md:mt-0 md:mr-12"
-          />
-          <div className="flex flex-col justify-center items-start max-w-3xl md:ml-12 mt-6 md:mt-0">
-            <div className="text-3xl sm:text-4xl md:text-5xl text-[#c3a6ff] mb-4 sm:mb-6 md:mb-8">
-              Mission
-            </div>
-            <p className="text-[#f0e5ff] text-base sm:text-lg md:text-xl mb-10 md:mb-20">
-              Our mission is to empower users to maximize their staking rewards
-              while contributing to the decentralization and security of the
-              blockchain ecosystem. We are committed to building a platform that
-              is not only sustainable but also aligns with the core values of
-              decentralization, trustlessness, and open finance. Join us in
-              reshaping the future of staking with a platform built on security,
-              integrity, and innovation.
-            </p>
-          </div>
-        </>
-      ) : (
-        <>
-          <div className="flex flex-col justify-center items-start max-w-3xl md:ml-12 mt-6 md:mt-0">
-            <div className="text-3xl sm:text-4xl md:text-5xl text-[#c3a6ff] mb-4 sm:mb-6 md:mb-8">
-              Mission
-            </div>
-            <p className="text-[#f0e5ff] text-base sm:text-lg md:text-xl mb-10 md:mb-20">
-              Our mission is to empower users to maximize their staking rewards
-              while contributing to the decentralization and security of the
-              blockchain ecosystem. We are committed to building a platform that
-              is not only sustainable but also aligns with the core values of
-              decentralization, trustlessness, and open finance. Join us in
-              reshaping the future of staking with a platform built on security,
-              integrity, and innovation.
-            </p>
-          </div>
-          <Image
-            src={handshakeImg}
-            alt="handshake"
-            className="h-48 w-60 sm:h-64 sm:w-80 md:h-96 md:w-96 mt-10 md:mt-0 md:mr-12"
-          />
-        </>
-      )}
-    </div>
+    <section className="mx-auto mt-32 max-w-6xl px-6 md:px-8">
+      <div className="grid items-center gap-12 lg:grid-cols-2">
+        <Reveal className="order-2 lg:order-1">
+          <AscentGraphic />
+        </Reveal>
+        <Reveal delay={150} className="order-1 lg:order-2">
+          <span className="eyebrow">Our mission</span>
+          <h2 className="mt-5 font-display text-3xl font-bold tracking-tight text-ink md:text-4xl">
+            Climb higher, <span className="text-aurora">together</span>
+          </h2>
+          <p className="mt-4 text-lg leading-relaxed text-ink-muted">
+            Our mission is to empower users to maximize their staking rewards
+            while contributing to the decentralization and security of the
+            blockchain ecosystem. We are building a platform that is
+            sustainable and aligned with the core values of decentralization,
+            trustlessness, and open finance — reshaping the future of staking
+            on security, integrity, and innovation.
+          </p>
+        </Reveal>
+      </div>
+    </section>
   );
 }

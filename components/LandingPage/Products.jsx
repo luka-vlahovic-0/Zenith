@@ -1,30 +1,33 @@
-import Cash from "./Cash";
-import Liquid from "./Liquid";
+import Reveal from "@/components/ui/Reveal";
 import Stake from "./Stake";
+import Liquid from "./Liquid";
+import Cash from "./Cash";
 
 export default function Products() {
   return (
-    <div className="flex flex-col items-center mt-24 px-4">
-      <div className="flex flex-col items-start justify-start mb-10 text-center lg:text-left lg:w-full lg:max-w-4xl lg:pr-16">
-        <h1 className="text-white text-3xl md:text-4xl mb-3 ml-2 font-semibold">
-          Our Products
-        </h1>
-        <p className="text-[#e0caff] text-base md:text-lg mb-4 ml-2">
-          Earn more when you re-stake with zenith.fi
+    <section className="relative mx-auto mt-28 max-w-7xl px-6 md:px-8">
+      <Reveal className="text-center">
+        <span className="eyebrow">Our products</span>
+        <h2 className="mt-5 font-display text-4xl font-bold tracking-tight text-ink md:text-5xl">
+          One protocol, <span className="text-aurora">three ways to earn</span>
+        </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-lg text-ink-muted">
+          Earn more when you restake with zenith.fi — then put your yield to
+          work everywhere.
         </p>
-      </div>
+      </Reveal>
 
-      <div className="flex flex-col items-center justify-center gap-10">
-        <div className="w-full max-w-4xl"> 
+      <div className="mt-14 grid gap-6 lg:grid-cols-3">
+        <Reveal delay={0}>
           <Stake />
-        </div>
-        <div className="w-full max-w-4xl">
+        </Reveal>
+        <Reveal delay={140}>
           <Liquid />
-        </div>
-        <div className="w-full max-w-4xl">
+        </Reveal>
+        <Reveal delay={280}>
           <Cash />
-        </div>
+        </Reveal>
       </div>
-    </div>
+    </section>
   );
 }

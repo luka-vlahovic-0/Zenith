@@ -1,21 +1,20 @@
-import CashBack from '@/components/CashComponents/CashBack'
-import CashMain from '@/components/CashComponents/CashMain'
-import React from 'react'
+import CashMain from "@/components/CashComponents/CashMain";
+import CashBack from "@/components/CashComponents/CashBack";
 
 export const metadata = {
-  title: "Zenith.fi | Staking Made Simple",
+  title: "zenith.fi | Cash — The Crypto Credit Card",
   description:
-    "Easily buy crypto with fiat cash on Zenith.fi. Enjoy a seamless purchasing experience and start your cryptocurrency journey today!",
+    "Spend your crypto in real life with the zenith.fi Cash credit card. Borrow against zETH, pay gaslessly, and earn cash back on every purchase.",
   icons: {
     icon: "/assets/ethlogo.png",
   },
 };
 
-export default function page() {
+export default function CashPage() {
   return (
     <>
       <CashMain />
       <CashBack />
     </>
-  )
+  );
 }

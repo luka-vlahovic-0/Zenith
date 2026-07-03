@@ -1,53 +1,87 @@
-import Image from "next/image";
+"use client";
 
-const VaultCard = ({
+import { toast } from "react-toastify";
+import CoinIcon from "@/components/ui/CoinIcon";
+
+export default function VaultCard({
   title,
   description,
   tvl,
-  multiplier1,
-  multiplier2,
-  multiplier3,
-  vaultIcon,
-  coinIcon1,
-  coinIcon2,
-  coinIcon3,
-}) => {
+  apy,
+  tag,
+  featured = false,
+  rewards = [], // [{ coin, label }]
+}) {
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center max-w-full md:max-w-7xl p-6 mb-4 border border-[#fffb1e] rounded-xl bg-[#19163b]">
-      <div className="flex items-start mb-4 md:mb-0">
-        <Image src={vaultIcon} alt="Vault icon" className="h-16 w-16 mr-4 hidden md:block" />
-        <div className="max-w-full md:max-w-2xl">
-          <h2 className="text-2xl mb-2 text-[#f0e5ff] font-bold">{title}</h2>
-          <p className="text-[#dad5df]">{description}</p>
+    <div
+      className={`glass glass-hover group relative overflow-hidden p-7 md:p-8 ${
+        featured ? "!border-zen-violet/40" : ""
+      }`}
+    >
+      {featured && (
+        <>
+          <div
+            className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full opacity-25 blur-3xl transition-opacity duration-500 group-hover:opacity-40"
+            style={{ background: "radial-gradient(circle, #8b7cf6, transparent 70%)" }}
+          />
+          <span className="absolute right-5 top-5 rounded-full border border-zen-violet/40 bg-zen-violet/10 px-3 py-1 font-display text-[10px] font-semibold uppercase tracking-[0.25em] text-zen-violet">
+            Featured
+          </span>
+        </>
+      )}
+
+      <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+        <div className="max-w-xl">
+          {tag && (
+            <span className="font-display text-xs font-medium uppercase tracking-[0.25em] text-zen-cyan">
+              {tag}
+            </span>
+          )}
+          <h3 className="mt-2 font-display text-2xl font-bold text-ink">{title}</h3>
+          <p className="mt-3 leading-relaxed text-ink-muted">{description}</p>
+
+          {rewards.length > 0 && (
+            <div className="mt-5 flex flex-wrap gap-2.5">
+              {rewards.map((r) => (
+                <span
+                  key={r.label}
+                  className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] py-1 pl-1.5 pr-3 text-xs text-ink-muted"
+                >
+                  <CoinIcon coin={r.coin} size={18} />
+                  {r.label}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="flex items-center gap-8 lg:gap-10">
+          <div className="flex gap-8">
+            <div className="text-center lg:text-right">
+              <p className="font-display text-3xl font-bold text-ink">{tvl}</p>
+              <p className="mt-1 text-[11px] uppercase tracking-[0.2em] text-ink-faint">TVL</p>
+            </div>
+            {apy && (
+              <div className="text-center lg:text-right">
+                <p className="font-display text-3xl font-bold text-aurora">{apy}</p>
+                <p className="mt-1 text-[11px] uppercase tracking-[0.2em] text-ink-faint">APY</p>
+              </div>
+            )}
+          </div>
+
+          <button
+            onClick={() =>
+              toast.info("Vault deposits are coming soon — zenith.fi is in demo mode 🌊", {
+                position: "bottom-right",
+                theme: "dark",
+              })
+            }
+            className="btn-aurora shrink-0 !px-6 !py-2.5 text-sm"
+          >
+            Deposit
+          </button>
         </div>
       </div>
-
-      <div className="flex flex-wrap justify-center md:flex-nowrap items-center bg-[#251841] border-2 border-[#836aff] rounded-lg p-4 mx-0 md:mx-4">
-        <div className="flex flex-col items-center mt-4 md:mt-0 mx-2 min-w-[80px] mb-4 md:mb-0">
-          <span className="text-[#f0e5ff] text-lg">{tvl}</span>
-          <span className="text-[#dad5df] text-sm">TVL</span>
-        </div>
-        <div className="flex items-center justify-center space-x-4">
-          <div className="flex flex-col items-center">
-            <Image src={coinIcon1} alt="coin1 icon" className="h-8 w-8" />
-            <span className="text-[#f0e5ff] text-sm">{multiplier1}</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <Image src={coinIcon2} alt="coin2 icon" className="h-8 w-8" />
-            <span className="text-[#f0e5ff] text-sm">{multiplier2}</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <Image src={coinIcon3} alt="coin3 icon" className="h-8 w-8" />
-            <span className="text-[#f0e5ff] text-sm">{multiplier3}</span>
-          </div>
-        </div>
-      </div>
-
-      <button className="w-full md:w-36 lg:w-48 h-12 mt-4 md:mt-0 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-xl transition duration-500 ease-in-out hover:bg-gradient-to-r hover:from-purple-500 hover:to-indigo-500">
-        Deposit
-      </button>
     </div>
   );
-};
-
-export default VaultCard;
+}

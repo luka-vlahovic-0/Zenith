@@ -31,7 +31,7 @@ export default function CreditCard({ className = "", float = true }) {
         style={{ animation: "card-shine 5s ease-in-out infinite" }}
       />
 
-      <div className="relative flex h-full flex-col justify-between p-6">
+      <div className="relative flex h-full flex-col justify-between p-5 sm:p-6">
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-2">
             <Logo size={28} />
@@ -51,8 +51,11 @@ export default function CreditCard({ className = "", float = true }) {
         </div>
 
         <div>
-          <p className="font-display text-lg tracking-[0.28em] text-white/90 md:text-xl">
-            5391&nbsp;&nbsp;2114&nbsp;&nbsp;8890&nbsp;&nbsp;1618
+          <p className="flex justify-between font-display text-sm tracking-[0.15em] text-white/90 xl:text-lg">
+            <span>5391</span>
+            <span>2114</span>
+            <span>8890</span>
+            <span>1618</span>
           </p>
           <div className="mt-3 flex items-end justify-between">
             <div>

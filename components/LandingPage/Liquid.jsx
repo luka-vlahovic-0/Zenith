@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function YieldChart() {
   return (
-    <svg viewBox="0 0 280 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" aria-hidden="true">
+    <svg viewBox="0 0 280 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-auto w-full min-w-0" aria-hidden="true">
       <defs>
         <linearGradient id="liquid-area" x1="0" y1="0" x2="0" y2="120" gradientUnits="userSpaceOnUse">
           <stop offset="0%" stopColor="#8b7cf6" stopOpacity="0.35" />
@@ -40,7 +40,7 @@ function YieldChart() {
 
 export default function Liquid() {
   return (
-    <div className="glass glass-hover group flex h-full flex-col p-8">
+    <div className="glass glass-hover group flex h-full flex-col p-6 sm:p-8">
       <span className="font-display text-xs font-medium uppercase tracking-[0.25em] text-zen-violet">
         Liquid
       </span>

@@ -3,7 +3,7 @@ import CreditCard from "@/components/ui/CreditCard";
 
 export default function Cash() {
   return (
-    <div className="glass glass-hover group flex h-full flex-col p-8">
+    <div className="glass glass-hover group flex h-full flex-col p-6 sm:p-8">
       <span className="font-display text-xs font-medium uppercase tracking-[0.25em] text-zen-pink">
         Cash
       </span>

@@ -18,13 +18,13 @@ export default function Products() {
       </Reveal>
 
       <div className="mt-14 grid gap-6 lg:grid-cols-3">
-        <Reveal delay={0}>
+        <Reveal delay={0} className="min-w-0">
           <Stake />
         </Reveal>
-        <Reveal delay={140}>
+        <Reveal delay={140} className="min-w-0">
           <Liquid />
         </Reveal>
-        <Reveal delay={280}>
+        <Reveal delay={280} className="min-w-0">
           <Cash />
         </Reveal>
       </div>

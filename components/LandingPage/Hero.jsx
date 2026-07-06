@@ -86,12 +86,18 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={480}>
-            <p className="mt-8 flex items-center justify-center gap-2 text-sm text-ink-faint lg:justify-start">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 2 4 6v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V6l-8-4Z" stroke="#2dd4bf" strokeWidth="1.6" strokeLinejoin="round" />
-                <path d="m8.5 12 2.5 2.5 4.5-5" stroke="#2dd4bf" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              Audited by Omniscia · Non-custodial · Your keys, your coins
+            <p className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-sm text-ink-faint lg:justify-start">
+              <span className="flex items-center gap-2 whitespace-nowrap">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 2 4 6v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V6l-8-4Z" stroke="#2dd4bf" strokeWidth="1.6" strokeLinejoin="round" />
+                  <path d="m8.5 12 2.5 2.5 4.5-5" stroke="#2dd4bf" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                Audited by Omniscia
+              </span>
+              <span className="hidden sm:inline" aria-hidden="true">·</span>
+              <span className="whitespace-nowrap">Non-custodial</span>
+              <span className="hidden sm:inline" aria-hidden="true">·</span>
+              <span className="whitespace-nowrap">Your keys, your coins</span>
             </p>
           </Reveal>
         </div>

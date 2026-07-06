@@ -3,7 +3,7 @@ import CoinIcon from "@/components/ui/CoinIcon";
 
 export default function Stake() {
   return (
-    <div className="glass glass-hover group flex h-full flex-col p-8">
+    <div className="glass glass-hover group flex h-full flex-col p-6 sm:p-8">
       <span className="font-display text-xs font-medium uppercase tracking-[0.25em] text-zen-cyan">
         Stake
       </span>
